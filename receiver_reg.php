@@ -66,9 +66,18 @@
 <?php
 if(isset($_POST['receiverSubmit']))
 {
-  $server = "localhost";
-  $username = "root";
-  $password = "";
+  //Development on localhost connection
+  // $server = "localhost";
+  // $username = "root";
+  // $password = "";
+  // $db="bbs";
+
+  //Remote Database connection
+  $server = "remotemysql.com";
+  $username = "4v8q1kWJBX";
+  $password = "77E0A9PO5L";
+  $db = "4v8q1kWJBX";
+
 
   $con = mysqli_connect($server,$username,$password);
   if(!$con){
@@ -87,7 +96,7 @@ if(isset($_POST['receiverSubmit']))
   }
 
   //checking if reciever emailID is unique
-  $query = "SELECT email FROM `bbs`.`rreg` WHERE email = '$email'";
+  $query = "SELECT email FROM `".$db."`.`rreg` WHERE email = '$email'";
   $fire = mysqli_query($con,$query);
   if(mysqli_num_rows($fire)>0){
     echo '<script type="text/javascript">',
@@ -95,7 +104,7 @@ if(isset($_POST['receiverSubmit']))
      '</script>';
   }
 
-  $sql = "INSERT INTO `bbs`.`rreg` (`name`, `email`, `bg`, `pass`, `dt`)
+  $sql = "INSERT INTO `".$db."`.`rreg` (`name`, `email`, `bg`, `pass`, `dt`)
           VALUES ('$name', '$email', '$bg', '$pass', current_timestamp());";
 
 
