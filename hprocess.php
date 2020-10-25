@@ -18,7 +18,7 @@ require_once('connection.php');
 session_start();
 
 //local machine 
-$db = "bbs";
+//$db = "bbs";
 //Remote sql connection
 $db = "4v8q1kWJBX";
 
