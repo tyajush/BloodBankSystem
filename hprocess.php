@@ -17,6 +17,10 @@
 require_once('connection.php');
 session_start();
 
+//local machine 
+$db = "bbs";
+//Remote sql connection
+$db = "4v8q1kWJBX";
 
   if(isset($_POST['login']))
   {     //checking if blanks are empty
@@ -25,7 +29,7 @@ session_start();
             header("location:hospital_login.php?Empty= You left some of the blanks empty, please try again");
       }
       else{
-              $query="SELECT * FROM `bbs`.`hreg` where hid = '".$_POST['id']."' and hpasssword = '".$_POST['password']."'";
+              $query="SELECT * FROM `".$db."`.`hreg` where hid = '".$_POST['id']."' and hpasssword = '".$_POST['password']."'";
               $result=mysqli_query($con,$query);
                 if(mysqli_fetch_assoc($result))
                 { $userType="hospital";
