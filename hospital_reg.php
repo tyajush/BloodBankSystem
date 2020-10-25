@@ -69,9 +69,18 @@
 <?php
 if(isset($_POST['hospitalSubmit']))
 {
-  $server = "localhost";
-  $username = "root";
-  $password = "";
+  //Development on localhost connection
+  // $server = "localhost";
+  // $username = "root";
+  // $password = "";
+  // $db="bbs";
+
+  //Remote Database connection
+  $server = "remotemysql.com";
+  $username = "4v8q1kWJBX";
+  $password = "77E0A9PO5L";
+  $db = "4v8q1kWJBX";
+
 
   $con = mysqli_connect($server,$username,$password);
   if(!$con){
@@ -90,7 +99,7 @@ if(isset($_POST['hospitalSubmit']))
   }
 
   //checking if Hospital ID is unique
-  $query = "SELECT hid FROM `bbs`.`hreg` WHERE hid = '$hid'";
+  $query = "SELECT hid FROM `".$db."`.`hreg` WHERE hid = '$hid'";
   $fire = mysqli_query($con,$query);
   if(mysqli_num_rows($fire)>0){
     echo '<script type="text/javascript">',
@@ -99,7 +108,7 @@ if(isset($_POST['hospitalSubmit']))
   }
 
 
-  $sql = "INSERT INTO `bbs`.`hreg` (`hname`, `address`, `hid`, `dt`, `hpasssword`)
+  $sql = "INSERT INTO `".$db."`.`hreg` (`hname`, `address`, `hid`, `dt`, `hpasssword`)
           VALUES ('$hname', '$address', '$hid', current_timestamp(), '$hpass');";
 
 
