@@ -16,7 +16,10 @@
 <?php
 require_once('connection.php');
 session_start();
-
+//local machine 
+$db = "bbs";
+//Remote sql connection
+$db = "4v8q1kWJBX";
 
   if(isset($_POST['login']))
   {     //checking if blanks are empty
@@ -28,7 +31,7 @@ session_start();
 
         //receiver login
 
-              $query="SELECT * FROM `bbs`.`rreg` where email = '".$_POST['username']."' and pass = '".$_POST['password']."'";
+              $query="SELECT * FROM `".$db."`.`rreg` where email = '".$_POST['username']."' and pass = '".$_POST['password']."'";
               $result=mysqli_query($con,$query);
                 if(mysqli_fetch_assoc($result))
                 {
