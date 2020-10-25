@@ -77,9 +77,18 @@
   // to insert request in request table
   if(isset($_POST['requestBloodSubmit']))
   {
-    $server = "localhost";
-    $username = "root";
-    $password = "";
+    //Development on localhost connection
+    // $server = "localhost";
+    // $username = "root";
+    // $password = "";
+    // $db="bbs";
+
+    //Remote Database connection
+    $server = "remotemysql.com";
+    $username = "4v8q1kWJBX";
+    $password = "77E0A9PO5L";
+    $db = "4v8q1kWJBX";
+
 
     $con = mysqli_connect($server,$username,$password);
     if(!$con){
@@ -97,7 +106,7 @@
     }
 
     //query for inserting request to request table
-    $sql = "INSERT INTO `bbs`.`request` (`id`, `bloodType`, `recName`, `dt`)
+    $sql = "INSERT INTO `".$db."`.`request` (`id`, `bloodType`, `recName`, `dt`)
             VALUES ('$hospitalID', '$bloodType', '$message', current_timestamp());";
 
 
