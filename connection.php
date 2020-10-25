@@ -1,6 +1,9 @@
 <?php
+  //for local host
+  //$con = mysqli_connect('localhost','root','');
 
-  $con = mysqli_connect('localhost','root','');
+  //for remote sql connection
+  $con = mysqli_connect('remotemysql.com','4v8q1kWJBX','77E0A9PO5L');
 
   if(!$con)
   {
