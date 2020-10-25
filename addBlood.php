@@ -51,9 +51,17 @@
 <?php
 if(isset($_POST['submitAddBlood']))
 {
-  $server = "localhost";
-  $username = "root";
-  $password = "";
+  //Development on localhost connection
+  // $server = "localhost";
+  // $username = "root";
+  // $password = "";
+  // $db="bbs";
+
+  //Remote Database connection
+  $server = "remotemysql.com";
+  $username = "4v8q1kWJBX";
+  $password = "77E0A9PO5L";
+  $db = "4v8q1kWJBX";
 
   $con = mysqli_connect($server,$username,$password);
   if(!$con){
@@ -66,7 +74,7 @@ if(isset($_POST['submitAddBlood']))
   $quantity = $_POST['quanity'];
 
 
-  $sql = "INSERT INTO `bbs`.`bloodstock` (`hospitalName`, `hospital ID`, `bloodType`, `quantity(ml)`)
+  $sql = "INSERT INTO `".$db."`.`bloodstock` (`hospitalName`, `hospital ID`, `bloodType`, `quantity(ml)`)
           VALUES ('$hospitalName','$hospitalID', '$bloodType', '$quantity'); ";
 
 
