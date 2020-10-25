@@ -39,16 +39,25 @@
                 </tr>
 
                 <?php
-                  $server = "localhost";
-                  $username = "root";
-                  $password = "";
+                //Development on localhost connection
+                // $server = "localhost";
+                // $username = "root";
+                // $password = "";
+                // $db="bbs";
+
+                //Remote Database connection
+                $server = "remotemysql.com";
+                $username = "4v8q1kWJBX";
+                $password = "77E0A9PO5L";
+                $db = "4v8q1kWJBX";
+
 
                   $con = mysqli_connect($server,$username,$password);
                   if(!$con){
                     die("connection to database failed due to ".mysqli_connect_error());
                   }
 
-                  $sql = "SELECT `sno`, `hospitalName`,`hospital ID`,`bloodType`, `quantity(ml)` from `bbs`.`bloodstock`";
+                  $sql = "SELECT `sno`, `hospitalName`,`hospital ID`,`bloodType`, `quantity(ml)` from `".$db."`.`bloodstock`";
                   $result = $con->query($sql);
                   if($result->num_rows > 0){
                       while($row = $result->fetch_assoc()){
