@@ -113,9 +113,9 @@ if(isset($_POST['receiverSubmit']))
      'registered();',
      '</script>';
   }
-  else{
-    echo "ERROR: $sql <br> $con->error";
-  }
+//   else{
+//     echo "ERROR: $sql <br> $con->error";
+//   }
 
   $con->close();
 
