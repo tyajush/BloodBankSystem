@@ -20,7 +20,7 @@ session_start();
 //local machine 
 //$db = "bbs";
 //Remote sql connection
-$db = "4v8q1kWJBX";
+$db = "fcTstWRZwg";
 
   if(isset($_POST['login']))
   {     //checking if blanks are empty
