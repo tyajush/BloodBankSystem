@@ -3,7 +3,7 @@
   //$con = mysqli_connect('localhost','root','');
 
   //for remote sql connection
-  $con = mysqli_connect('remotemysql.com','4v8q1kWJBX','77E0A9PO5L');
+  $con = mysqli_connect('remotemysql.com','fcTstWRZwg','XZ3DRiQb3Z');
 
   if(!$con)
   {
